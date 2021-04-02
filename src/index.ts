@@ -6,6 +6,10 @@ const PORT = process.env.PORT
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 
+app.get("/check", (req, res) => {
+  res.send("Healthy")
+})
+
 app.use("/medium", mediumRouter)
 
 app.listen(PORT, () => {
