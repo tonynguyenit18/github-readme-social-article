@@ -1,7 +1,7 @@
 import express from "express"
 const app = express()
 import { mediumRouter } from "./services/medium/router"
-const PORT = 5000
+const PORT = process.env.PORT
 
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
