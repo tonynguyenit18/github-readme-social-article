@@ -1,4 +1,6 @@
-export const generateMediumTemplate = () => `
+import { MediumArticle } from "../services/medium/apis"
+
+export const generateMediumTemplate = ({ mediumArticle }: { mediumArticle: MediumArticle }) => `
 <svg fill="none" width="800" height="120" xmlns="http://www.w3.org/2000/svg">
     <foreignObject width="100%" height="100%">
         <div xmlns="http://www.w3.org/1999/xhtml">
@@ -39,7 +41,6 @@ export const generateMediumTemplate = () => `
         img {
           margin-right: 10px;
           width: 150px;
-          height: 100%;
           object-fit: cover;
         }
         .right{
@@ -65,15 +66,15 @@ export const generateMediumTemplate = () => `
                 
             </style>
       <div class="outer-container flex">
-        <a class="container flex" href="https://raw.githubusercontent.com/tonynguyenit18/tonynguyenit18/main/static/code-guy.jpeg" target="__blank">
-                    <img src="https://raw.githubusercontent.com/tonynguyenit18/tonynguyenit18/main/static/code-guy.jpeg"/>
+        <a class="container flex" href=${mediumArticle.url} target="__blank">
+                    <img src=${mediumArticle.thumbnail} />
           <div class="right">
-            <h3>Hello</h3>
-            <small>date</small>
-            <p>description</p>
+            <h3>${mediumArticle.title}</h3>
+            <small>${mediumArticle.date}</small>
+            <p>${mediumArticle.description}</p>
           </div>
                 </a>
       </div>
         </div>
     </foreignObject>
-</svg>`;
+</svg>`
