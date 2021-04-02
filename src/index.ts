@@ -10,6 +10,10 @@ app.get("/check", (req, res) => {
   res.send("Healthy")
 })
 
+app.get("/", (req, res) => {
+  res.send("Hello")
+})
+
 app.use("/medium", mediumRouter)
 
 app.listen(PORT, () => {
