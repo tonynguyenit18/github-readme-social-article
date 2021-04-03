@@ -17,7 +17,7 @@ router.get("/:userName", async (req: Request, res: Response) => {
   res.send(response)
 })
 
-router.get("/:userName/:index", async (req: Request, res: Response) => {
+router.use("/:userName/:index", async (req: Request, res: Response) => {
   const { userName, index } = req.params
   const articleIndex = parseInt(index)
   const recentArticles = await mediumRecentArticles({ userName, index: articleIndex })
