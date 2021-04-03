@@ -6,7 +6,7 @@ export const generateMediumTemplate = ({
 }: {
   mediumArticle: MediumArticle
   styles?: { width: number; height: number }
-}) => `<svg fill="none" width="800" height=${styles.height} xmlns="http://www.w3.org/2000/svg">
+}) => `<svg fill="none" width="800" height="${styles.height}" xmlns="http://www.w3.org/2000/svg">
   <foreignObject width="100%" height="100%">
     <div xmlns="http://www.w3.org/1999/xhtml">
       <style>
@@ -82,8 +82,8 @@ export const generateMediumTemplate = ({
         }
       </style>
       <div class="outer-container flex">
-        <a class="container flex" href=${mediumArticle.url} target="__blank">
-          <img src=${mediumArticle.thumbnail} />
+        <a class="container flex" href="${mediumArticle.url}" target="__blank">
+          <img src="${mediumArticle.thumbnail}" />
           <div class="right">
             <h3>${mediumArticle.title}</h3>
             <small>${mediumArticle.date}</small>
