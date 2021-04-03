@@ -1,12 +1,16 @@
 import { MediumArticle } from "../services/medium/apis"
 
 export const generateMediumTemplate = ({
-  mediumArticle,
+  mediumArticles,
   styles = { width: 700, height: 120 }
 }: {
-  mediumArticle: MediumArticle
+  mediumArticles: MediumArticle[]
   styles?: { width: number; height: number }
-}) => `<svg fill="none" width="800" height="${styles.height}" xmlns="http://www.w3.org/2000/svg">
+}) => {
+  const numOfArticles = mediumArticles.length
+  const front = `<svg fill="none" width="800" height="${
+    numOfArticles * styles.height
+  }" xmlns="http://www.w3.org/2000/svg">
   <foreignObject width="100%" height="100%">
     <div xmlns="http://www.w3.org/1999/xhtml">
       <style>
@@ -33,10 +37,10 @@ export const generateMediumTemplate = ({
         }
 
         .outer-container {
-          height:120px;
+          height:${styles.height}px;
         }
         .container {
-          height: 118px;
+          height: ${styles.height - 2}px;
           width: ${styles.width}px;
           border: 1px solid rgba(0, 0, 0, .2);
           padding: 10px 20px;
@@ -80,17 +84,27 @@ export const generateMediumTemplate = ({
           margin-top: 5px;
           margin-bottom: 8px
         }
-      </style>
-      <div class="outer-container flex">
-        <a class="container flex" href="${mediumArticle.url}" target="__blank">
-          <img src="${mediumArticle.thumbnail}" />
-          <div class="right">
-            <h3>${mediumArticle.title}</h3>
-            <small>${mediumArticle.date}</small>
-            <p>${mediumArticle.description}</p>
-          </div>
-        </a>
-      </div>
+      </style>`
+
+  const back = `</div>
+        </foreignObject>
+      </svg>`
+
+  let svg = front
+  mediumArticles.forEach((mediumArticle) => {
+    svg += `<div class="outer-container flex">
+  <a class="container flex" href="${mediumArticle.url}" target="__blank">
+    <img src="${mediumArticle.thumbnail}" />
+    <div class="right">
+      <h3>${mediumArticle.title}</h3>
+      <small>${mediumArticle.date}</small>
+      <p>${mediumArticle.description}</p>
     </div>
-  </foreignObject>
-</svg>`
+  </a>
+</div>`
+  })
+
+  svg += back
+
+  return svg
+}

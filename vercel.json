@@ -1,12 +1,3 @@
 {
-    "rewrites": [{ "source": "/(.*)", "destination": "/api" }],
-    "headers": [
-      {
-        "source": "/(.*)",
-        "headers": [
-          { "key": "Content-Type", "value": "image/svg+xml" },
-          { "key": "Cache-Control", "value": "s-maxage=3600, stale-while-revalidate" }
-        ]
-      }
-    ]
+    "rewrites": [{ "source": "/(.*)", "destination": "/api" }]
 }
