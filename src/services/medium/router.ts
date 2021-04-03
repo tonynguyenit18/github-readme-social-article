@@ -14,7 +14,9 @@ router.get("/:userName", async (req: Request, res: Response) => {
     response += template
   })
   response += "</div>"
-  res.send(response)
+  res.set("Cache-Control", "s-maxage=3600, stale-while-revalidate")
+  res.set("Content-Type", "image/svg+xml")
+  return res.send(response)
 })
 
 router.use("/:userName/:index", async (req: Request, res: Response) => {
@@ -24,7 +26,9 @@ router.use("/:userName/:index", async (req: Request, res: Response) => {
   const mediumTemplates = recentArticles.map((mediumArticle) => {
     return generateMediumTemplate({ mediumArticle })
   })
-  res.send(mediumTemplates[0])
+  res.set("Cache-Control", "s-maxage=3600, stale-while-revalidate")
+  res.set("Content-Type", "image/svg+xml")
+  return res.send(mediumTemplates[0])
 })
 
 export { router as mediumRouter }
