@@ -5,7 +5,7 @@
   "main": "dist/api/index.js",
   "scripts": {
     "start": "env-cmd -f .env.development tsc-watch --onSuccess \"node .dist/api/index.js\"",
-    "build": "rimraf public && tsc -p tsconfig.json && cp vercel.json dist/",
+    "build": "rimraf dist && tsc -p tsconfig.json",
     "deploy:vercel": "yarn build && vercel ./dist",
     "dev:vercel": "yarn build && vercel dev ./dist"
   },
