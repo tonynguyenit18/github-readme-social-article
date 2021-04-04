@@ -7,7 +7,7 @@
     "start": "env-cmd -f .env.development tsc-watch --onSuccess \"node .dist/api/index.js\"",
     "build": "rimraf dist && tsc -p tsconfig.json",
     "deploy:vercel": "yarn build && vercel ./dist",
-    "dev:vercel": "yarn build && vercel dev ./dist"
+    "dev:vercel": "yarn build && cp vercel.json ./dist && cp -R .vercel ./dist && vercel dev ./dist"
   },
   "author": "Tony Nguyen (https://github.com/tonynguyenit18)",
   "license": "ISC",
