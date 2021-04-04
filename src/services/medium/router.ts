@@ -1,10 +1,10 @@
 import express, { Request, Response } from "express"
 import { generateMediumTemplate } from "../../utils/svgTemplates"
-import { mediumRecentArticles } from "./apis"
+import { mediumArticleById, mediumRecentArticles } from "./apis"
 import { imgLinkToBase64 } from "../../utils/imgLinkToBase64"
 const router = express.Router()
 
-const getTemplate = async ({ userName, articleIndex }: { userName: string; articleIndex: number }) => {
+const getTemplate = async ({ userName, articleIndex }: { userName: string; articleIndex?: number }) => {
   let recentArticles = await mediumRecentArticles({ userName, index: articleIndex })
 
   const imgLinkBase64Promises = recentArticles.map((article) => imgLinkToBase64(article.thumbnail))
@@ -23,11 +23,18 @@ const getTemplate = async ({ userName, articleIndex }: { userName: string; artic
   return template
 }
 
-router.get("/:userName", async (req: Request, res: Response) => {
-  const { userName, index } = req.params
-  const articleIndex = parseInt(index)
+const getTemplateById = async ({ userName, articleId }: { userName: string; articleId: string }) => {
+  let article = await mediumArticleById({ userName, articleId })
+  const thumbNailBase64 = await imgLinkToBase64(article.thumbnail)
+  article = { ...article, thumbnail: thumbNailBase64.base64 }
+  const template = generateMediumTemplate({ mediumArticles: [article] })
+  return template
+}
 
-  const template = await getTemplate({ userName, articleIndex })
+router.get("/:userName", async (req: Request, res: Response) => {
+  const { userName } = req.params
+
+  const template = await getTemplate({ userName })
   res.setHeader("Cache-Control", "s-maxage=3600, stale-while-revalidate")
   res.setHeader("Content-Type", "image/svg+xml")
   res.send(template)
@@ -35,9 +42,14 @@ router.get("/:userName", async (req: Request, res: Response) => {
 
 router.use("/:userName/:index", async (req: Request, res: Response) => {
   const { userName, index } = req.params
-  const articleIndex = parseInt(index)
+  let articleIndex = parseInt(index)
+  let template
 
-  const template = await getTemplate({ userName, articleIndex })
+  if (!Number.isInteger(articleIndex)) {
+    template = await getTemplateById({ userName, articleId: index })
+  } else if (articleIndex || articleIndex === 0) {
+    template = await getTemplate({ userName, articleIndex })
+  }
   res.setHeader("Cache-Control", "s-maxage=3600, stale-while-revalidate")
   res.setHeader("Content-Type", "image/svg+xml")
   res.send(template)
