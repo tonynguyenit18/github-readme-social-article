@@ -36,7 +36,7 @@ Params                |Description                      |Note                   
 ----------------------|---------------------------------|-------------------------------|----------
 `<social-site>`       | name of social site             |Currently only support `medium`| `medium`
 `<user-name>`         | your user name in the social site|                             | `@tonynguyenit`
-`<index>`             | Index of the article         | Currently, Medium support maximum 9 articles| `0`
+`<index>`             | Index of the article         | Currently, Medium support maximum 10 articles| `0`
 `<article-id>`        | Unique article id from the social site | After publish the article will have a unique id | `pixelate-images-and-html-element-in-react-78d4120357ad`
 
 ##### How to use?
