@@ -45,7 +45,7 @@ router.use("/:userName/:index", async (req: Request, res: Response) => {
   let articleIndex = parseInt(index)
   let template
 
-  if (!Number.isInteger(articleIndex)) {
+  if (!Number.isInteger(index)) {
     template = await getTemplateById({ userName, articleId: index })
   } else if (articleIndex || articleIndex === 0) {
     template = await getTemplate({ userName, articleIndex })

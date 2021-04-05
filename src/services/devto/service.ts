@@ -1,7 +1,7 @@
 import moment from "moment"
 import { imgLinkToBase64 } from "../../utils/imgLinkToBase64"
 import { generateDevtoTemplate } from "../../utils/svgTemplates"
-import { devtoRecentArticles } from "./apis"
+import { devtoArticleByUsernameAndId, devtoRecentArticles } from "./apis"
 import { DevtoArticle, DevtoOptions } from "./type"
 
 const descriptionMax = 50
@@ -47,11 +47,9 @@ const getFormattedArticles = async ({ articles }: { articles: DevtoArticle[] }) 
 
 export const articlesTemplateByUserName = async ({
   userName,
-  index,
   devtoOptions
 }: {
   userName: string
-  index?: number
   devtoOptions?: DevtoOptions
 }) => {
   let recentArticles = await devtoRecentArticles({ userName: userName, devtoOptions: devtoOptions })
@@ -59,5 +57,39 @@ export const articlesTemplateByUserName = async ({
   recentArticles = await getFormattedArticles({ articles: recentArticles })
 
   const template = generateDevtoTemplate({ devtoArticles: recentArticles })
+  return template
+}
+
+export const articleTemplateByUserNameAndIndex = async ({
+  userName,
+  articleIndex
+}: {
+  userName: string
+  articleIndex: number
+}) => {
+  let recentArticles = await devtoRecentArticles({ userName: userName, devtoOptions: { top: articleIndex + 1 } })
+
+  recentArticles = [recentArticles[articleIndex]]
+
+  recentArticles = await getFormattedArticles({ articles: recentArticles })
+
+  const template = generateDevtoTemplate({ devtoArticles: recentArticles })
+  return template
+}
+
+export const articleTemplateByUserNameAndArticleId = async ({
+  userName,
+  articleId
+}: {
+  userName: string
+  articleId: string
+}) => {
+  let article = await devtoArticleByUsernameAndId({ userName: userName, articleId: articleId })
+
+  let articles = [article]
+
+  articles = await getFormattedArticles({ articles: articles })
+
+  const template = generateDevtoTemplate({ devtoArticles: articles })
   return template
 }

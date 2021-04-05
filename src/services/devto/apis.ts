@@ -23,3 +23,22 @@ export const devtoRecentArticles = async ({
 
   return devtoArticles
 }
+
+export const devtoArticleByUsernameAndId = async ({
+  userName,
+  articleId
+}: {
+  userName: string
+  articleId: string
+}): Promise<DevtoArticle> => {
+  let { data = {} } = await axios.get(`${devtoArticlesEndpoint}/${userName}/${articleId}`)
+  const devtoArticle = {
+    title: data.cover_image ? data.title : "", // If there is no cover image, devto will generate thumbnail using title, so we don't want to show title by text again
+    thumbnail: data.social_image,
+    url: data.url,
+    date: data.created_at,
+    description: data.description
+  }
+
+  return devtoArticle
+}

@@ -1,5 +1,9 @@
 import express, { Request, Response } from "express"
-import { articlesTemplateByUserName } from "./service"
+import {
+  articlesTemplateByUserName,
+  articleTemplateByUserNameAndArticleId,
+  articleTemplateByUserNameAndIndex
+} from "./service"
 const router = express.Router()
 
 router.get("/:userName", async (req: Request, res: Response) => {
@@ -7,6 +11,21 @@ router.get("/:userName", async (req: Request, res: Response) => {
   const { top } = req.query
 
   const template = await articlesTemplateByUserName({ userName, devtoOptions: { top: top && parseInt(top as string) } })
+  res.setHeader("Cache-Control", "s-maxage=3600, stale-while-revalidate")
+  res.setHeader("Content-Type", "image/svg+xml")
+  res.send(template)
+})
+
+router.get("/:userName/:index", async (req: Request, res: Response) => {
+  const { userName, index } = req.params
+  let articleIndex = parseInt(index)
+  let template = ""
+  if (!Number.isInteger(index)) {
+    template = await articleTemplateByUserNameAndArticleId({ userName, articleId: index })
+  } else if (articleIndex || articleIndex === 0) {
+    template = await articleTemplateByUserNameAndIndex({ userName, articleIndex })
+  }
+
   res.setHeader("Cache-Control", "s-maxage=3600, stale-while-revalidate")
   res.setHeader("Content-Type", "image/svg+xml")
   res.send(template)
