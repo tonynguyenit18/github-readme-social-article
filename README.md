@@ -80,6 +80,10 @@ OR
 
 [Live demo](https://github.com/tonynguyenit18)
 
+### Contributing
+- Please, feel free to create an issue in [issues](https://github.com/tonynguyenit18/github-readme-social-article/issues) if you see any or want to suggest any improvement.
+- If you want to show off your social article from other sites, please create an [issue](https://github.com/tonynguyenit18/github-readme-social-article/issues/new), so I can investigate their apis, or you can create PR (But please create an issue first), if you want to.
+
 
 
 
