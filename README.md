@@ -20,9 +20,25 @@ Show your social article on github readme profile
 `https://github-readme-social-article.vercel.app/medium/@tonynguyenit`
 ![Medium Cards](https://github-readme-social-article.vercel.app/medium/@tonynguyenit)
 
+2. [Devto](https://dev.to/)
+
+- **Recent article by article id**
+`https://github-readme-social-article.vercel.app/devto/tonynguyenit/how-to-show-off-your-social-article-in-github-readme-profile-131o`
+![Medium Cards](https://github-readme-social-article.vercel.app/devto/tonynguyenit/how-to-show-off-your-social-article-in-github-readme-profile-131o)
+
+
+- **Recent article by index**
+`https://github-readme-social-article.vercel.app/devto/tonynguyenit/1`
+![Medium Cards](https://github-readme-social-article.vercel.app/devto/tonynguyenit/1)
+
+- **List of recent article**
+`https://github-readme-social-article.vercel.app/devto/tonynguyenit?top=2`
+![Medium Cards](https://github-readme-social-article.vercel.app/devto/tonynguyenit?top=2)
+
 ### Usage
 
-##### Format:
+##### 1. Medium
+ **Format:**
 - **Recent article by index**
 `https://github-readme-social-article.vercel.app/<social-site>/<user-name>/<article-id>`
 
@@ -32,12 +48,22 @@ Show your social article on github readme profile
 - **List of recent article**
 `https://github-readme-social-article.vercel.app/<social-site>/<user-name>`
 
-Params                |Description                      |Note                           |example
-----------------------|---------------------------------|-------------------------------|----------
-`<social-site>`       | name of social site             |Currently only support `medium`| `medium`
-`<user-name>`         | your user name in the social site|                             | `@tonynguyenit`
-`<index>`             | Index of the article         | Currently, Medium support maximum 10 articles| `0`
-`<article-id>`        | Unique article id from the social site | After publish the article will have a unique id | `pixelate-images-and-html-element-in-react-78d4120357ad`
+
+Params                Social site support    |Description                      |Note                           |example
+----------------------|----------------------|---------------------------------|-------------------------------|----------
+`<social-site>`       |`medium` `devto`      | name of social site             |Currently only support `medium` and `devto`| `medium`
+`<user-name>`         |`medium` `devto`      | your user name in the social site|                             | `@tonynguyenit`
+`<index>`             |`medium` `devto`      | Index of the article         | Currently, Medium support maximum 10 articles| `0`
+`<article-id>`        |`medium` `devto`      | Unique article id from the social site | After publish the article will have a unique id | `pixelate-images-and-html-element-in-react-78d4120357ad`
+
+#### Special support
+1. Devto
+
+Queries             | Type                 | Default value  | Description                    |Example
+--------------------|----------------------|----------------|--------------------------------|--------------------------------------
+`top`               | number               | 6              | Top recent articles            | Show 2 most recent articles `https://github-readme-social-article.vercel.app/devto/tonynguyenit?top=2`
+
+
 
 ##### How to use?
 There are 2 to embed link:
