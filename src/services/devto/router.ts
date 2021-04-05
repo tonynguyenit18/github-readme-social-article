@@ -1,0 +1,15 @@
+import express, { Request, Response } from "express"
+import { articlesTemplateByUserName } from "./service"
+const router = express.Router()
+
+router.get("/:userName", async (req: Request, res: Response) => {
+  const { userName } = req.params
+  const { top } = req.query
+
+  const template = await articlesTemplateByUserName({ userName, devtoOptions: { top: top && parseInt(top as string) } })
+  res.setHeader("Cache-Control", "s-maxage=3600, stale-while-revalidate")
+  res.setHeader("Content-Type", "image/svg+xml")
+  res.send(template)
+})
+
+export { router as devtoRouter }

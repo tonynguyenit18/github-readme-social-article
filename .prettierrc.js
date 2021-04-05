@@ -3,8 +3,8 @@ module.exports = {
   tabWidth: 2,
   singleQuote: false,
   semi: false,
-  trailingComma: 'none',
+  trailingComma: "none",
   bracketSpacing: true,
-  arrowParens: 'always',
-  parser: 'typescript'
-};
+  arrowParens: "always",
+  parser: "typescript"
+}
