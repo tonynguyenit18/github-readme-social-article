@@ -49,7 +49,7 @@ Show your social article on github readme profile
 `https://github-readme-social-article.vercel.app/<social-site>/<user-name>`
 
 
-Params                Social site support    |Description                      |Note                           |example
+Params                |Social site support    |Description                      |Note                           |example
 ----------------------|----------------------|---------------------------------|-------------------------------|----------
 `<social-site>`       |`medium` `devto`      | name of social site             |Currently only support `medium` and `devto`| `medium`
 `<user-name>`         |`medium` `devto`      | your user name in the social site|                             | `@tonynguyenit`
