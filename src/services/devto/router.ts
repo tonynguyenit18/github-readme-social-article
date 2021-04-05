@@ -18,12 +18,12 @@ router.get("/:userName", async (req: Request, res: Response) => {
 
 router.get("/:userName/:index", async (req: Request, res: Response) => {
   const { userName, index } = req.params
-  let articleIndex = parseInt(index)
+  let articleIndex = Number(index)
   let template = ""
-  if (!Number.isInteger(index)) {
-    template = await articleTemplateByUserNameAndArticleId({ userName, articleId: index })
-  } else if (articleIndex || articleIndex === 0) {
+  if (articleIndex || articleIndex === 0) {
     template = await articleTemplateByUserNameAndIndex({ userName, articleIndex })
+  } else {
+    template = await articleTemplateByUserNameAndArticleId({ userName, articleId: index })
   }
 
   res.setHeader("Cache-Control", "s-maxage=3600, stale-while-revalidate")
