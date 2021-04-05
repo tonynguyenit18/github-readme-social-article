@@ -1,7 +1,7 @@
 import express from "express"
 const app = express()
 import { mediumRouter } from "../services/medium/router"
-const PORT = process.env.PORT
+import { devtoRouter } from "../services/devto/router"
 
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
@@ -11,5 +11,7 @@ app.get("/health", (req, res) => {
 })
 
 app.use("/medium", mediumRouter)
+
+app.use("/devto", devtoRouter)
 
 module.exports = app
