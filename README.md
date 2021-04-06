@@ -23,13 +23,13 @@ Show your social article on github readme profile
 2. [Devto](https://dev.to/)
 
 - **Recent article by article id**
-`https://github-readme-social-article.vercel.app/devto/tonynguyenit/how-to-show-off-your-social-article-in-github-readme-profile-131o`
-![Medium Cards](https://github-readme-social-article.vercel.app/devto/tonynguyenit/how-to-show-off-your-social-article-in-github-readme-profile-131o)
+`https://github-readme-social-article.vercel.app/devto/tonynguyenit/how-to-show-off-your-social-article-in-github-readme-profile-249`
+![Medium Cards](https://github-readme-social-article.vercel.app/devto/tonynguyenit/how-to-show-off-your-social-article-in-github-readme-profile-249)
 
 
 - **Recent article by index**
-`https://github-readme-social-article.vercel.app/devto/tonynguyenit/1`
-![Medium Cards](https://github-readme-social-article.vercel.app/devto/tonynguyenit/1)
+`https://github-readme-social-article.vercel.app/devto/tonynguyenit/0`
+![Medium Cards](https://github-readme-social-article.vercel.app/devto/tonynguyenit/0)
 
 - **List of recent article**
 `https://github-readme-social-article.vercel.app/devto/tonynguyenit?top=2`
@@ -37,7 +37,6 @@ Show your social article on github readme profile
 
 ### Usage
 
-##### 1. Medium
  **Format:**
 - **Recent article by index**
 `https://github-readme-social-article.vercel.app/<social-site>/<user-name>/<article-id>`
