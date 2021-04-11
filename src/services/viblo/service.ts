@@ -1,7 +1,11 @@
 import moment from "moment"
-import { generateVibloTemplate } from "../../utils/svgTemplate/vibloSvgTemplate"
+import {
+  generateNotFoundVibloTemplate,
+  generateUserNotFoundVibloTemplate,
+  generateVibloTemplate
+} from "../../utils/svgTemplate/vibloSvgTemplate"
 import { imgLinkToBase64 } from "../../utils/imgLinkToBase64"
-import { vibloRecentArticles } from "./apis"
+import { vibloArticleByUsernameAndId, vibloRecentArticles } from "./apis"
 import { VibloArticle, VibloOptions } from "./type"
 
 const descriptionMax = 50
@@ -58,9 +62,55 @@ export const articlesTemplateByUserName = async ({
   vibloOptions?: VibloOptions
 }) => {
   let recentArticles = await vibloRecentArticles({ username: username, vibloOptions })
+  if (!recentArticles) {
+    return generateUserNotFoundVibloTemplate({ username })
+  } else {
+    recentArticles = await getFormattedArticles({ articles: recentArticles })
 
-  recentArticles = await getFormattedArticles({ articles: recentArticles })
+    const template = generateVibloTemplate({ vibloArticles: recentArticles })
+    return template
+  }
+}
 
-  const template = generateVibloTemplate({ vibloArticles: recentArticles })
+export const articleTemplateByUserNameAndIndex = async ({
+  username,
+  articleIndex
+}: {
+  username: string
+  articleIndex: number
+}) => {
+  let recentArticles = await vibloRecentArticles({ username: username, vibloOptions: { top: articleIndex + 1 } })
+  let template
+  if (!recentArticles[articleIndex]) {
+    template = generateNotFoundVibloTemplate()
+  } else {
+    recentArticles = [recentArticles[articleIndex]]
+    recentArticles = await getFormattedArticles({ articles: recentArticles })
+
+    template = generateVibloTemplate({ vibloArticles: recentArticles })
+  }
+
+  return template
+}
+
+export const articleTemplateByUserNameAndArticleId = async ({
+  username,
+  articleId
+}: {
+  username: string
+  articleId: string
+}) => {
+  let article = await vibloArticleByUsernameAndId({ username: username, articleId: articleId })
+
+  let template
+  if (!article) {
+    template = generateNotFoundVibloTemplate()
+  } else {
+    let articles = [article]
+    articles = await getFormattedArticles({ articles: articles })
+
+    template = generateVibloTemplate({ vibloArticles: articles })
+  }
+
   return template
 }

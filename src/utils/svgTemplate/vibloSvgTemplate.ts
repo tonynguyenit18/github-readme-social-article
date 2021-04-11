@@ -119,3 +119,118 @@ export const generateVibloTemplate = ({
     </svg>`
   return svg
 }
+
+export const generateNotFoundVibloTemplate = (styles?: { width: number; height: number }) => {
+  const { width = 400, height = 300 } = styles || {}
+  const svg = `<svg fill="none" width="810" height="${height}" xmlns="http://www.w3.org/2000/svg">
+      <foreignObject width="100%" height="100%">
+        <div xmlns="http://www.w3.org/1999/xhtml">
+          <style>
+            * {
+              margin: 0;
+              padding: 0;
+              box-sizing: border-box;
+              font-family: sans-serif
+            }
+    
+            @keyframes gradientBackground {
+              0% {
+                background-position-x: 0%;
+              }
+    
+              100% {
+                background-position-x: 100%;
+              }
+            }
+    
+            .flex {
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+            }
+  
+            .outer-container {
+              height:${height}px;
+            }
+            .container {
+              height: ${height - 2}px;
+              width: ${width - 5}px;
+              border: 1px solid rgba(0, 0, 0, .2);
+              border-radius: 10px;
+              background: linear-gradient(60deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 47%, rgba(246, 246, 246, 1) 50%, rgba(255, 255, 255, 1) 53%, rgba(255, 255, 255, 1) 100%);
+              background-size: 600% 400%;
+              animation: gradientBackground 3s ease infinite;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              padding-bottom:5px;
+            }
+          </style>
+          <div class="flex" >
+            <div class="outer-container flex">
+              <div class="container flex"  style="justify-content: center; align-items: center;">
+                <h3>
+                  Not Found
+                </h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </foreignObject>
+    </svg>`
+  return svg
+}
+
+export const generateUserNotFoundVibloTemplate = ({ username }: { username: string }) => {
+  const svg = `<svg fill="none" width="200" height="100" xmlns="http://www.w3.org/2000/svg">
+      <foreignObject width="100%" height="100%">
+        <div xmlns="http://www.w3.org/1999/xhtml">
+          <style>
+            * {
+              margin: 0;
+              padding: 0;
+              box-sizing: border-box;
+              font-family: sans-serif
+            }
+    
+            @keyframes gradientBackground {
+              0% {
+                background-position-x: 0%;
+              }
+    
+              100% {
+                background-position-x: 100%;
+              }
+            }
+    
+            .flex {
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+            }
+  
+            .outer-container {
+              height:100px;
+            }
+            .container {
+              height: 95px;
+              width: 100px;
+              border: 1px solid rgba(0, 0, 0, .2);
+              border-radius: 10px;
+              background: linear-gradient(60deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 47%, rgba(246, 246, 246, 1) 50%, rgba(255, 255, 255, 1) 53%, rgba(255, 255, 255, 1) 100%);
+              background-size: 600% 400%;
+              animation: gradientBackground 3s ease infinite;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              padding-bottom:5px;
+            }
+          </style>
+            <a href="https://viblo.asia/u/${username}" target="__blank">
+              <h3>
+                User does not exist
+              </h3>
+            </a>
+        </div>
+      </foreignObject>
+    </svg>`
+  return svg
+}
