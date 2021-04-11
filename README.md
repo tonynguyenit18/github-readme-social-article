@@ -14,8 +14,8 @@ Show your social article on github readme profile
 - **List of recent article**
 `https://github-readme-social-article.vercel.app/<social-site>/<user-name>`
 
-Params                |Description                      |Note                           |example
-----------------------|----------------------|---------------------------------|-------------------------------|----------
+Params                |Description                      |Note                           |Example
+----------------------|---------------------------------|-------------------------------|-------------------------------
 `<social-site>`       | name of social site             |Currently only support `medium` and `devto`| `medium`
 `<user-name>`         | your user name in the social site|                             | `@tonynguyenit`
 `<index>`             | Index of the article         | Currently, Medium support maximum 10 articles| `0`
@@ -63,7 +63,7 @@ Use [Common Format](#format)
 Queries             | Type                 | Default value  | Description                    |Example
 --------------------|----------------------|----------------|--------------------------------|--------------------------------------
 `top`               | number               | 6              | Top recent articles            | Show 2 most recent articles `https://github-readme-social-article.vercel.app/devto/tonynguyenit?top=2`
-### 3. [Viblo (Vietnamese)](https://viblo.asia/)
+<!-- ### 3. [Viblo (Vietnamese)](https://viblo.asia/)
 
 - **Recent article by article id**
 `https://github-readme-social-article.vercel.app/viblo/tonynguyenit/how-to-show-off-your-social-article-in-github-readme-profile-bWrZnWGmlxw`
@@ -85,7 +85,7 @@ Use [Common Format](#format)
 
 Queries             | Type                 | Default value  | Description                    |Example
 --------------------|----------------------|----------------|--------------------------------|--------------------------------------
-`top`               | number               | 2              | Top recent articles            | Show 2 most recent articles `https://github-readme-social-article.vercel.app/viblo/tonynguyenit?top=10`
+`top`               | number               | 2              | Top recent articles            | Show 2 most recent articles `https://github-readme-social-article.vercel.app/viblo/tonynguyenit?top=10` -->
 
 
 
