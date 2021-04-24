@@ -8,6 +8,7 @@ import {
 const router = express.Router()
 
 router.get("/:username", async (req: Request, res: Response) => {
+  console.log(req)
   const { username } = req.params
   const { top } = req.query
 

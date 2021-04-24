@@ -3,6 +3,48 @@ import { VibloArticle, VibloOptions } from "./type"
 
 const vibloEndpoint = "https://api.viblo.asia"
 
+// Get endpoint from https://reqbin.com/
+const reqbinEndpoint = "https://apius.reqbin.com/api/v1/requests"
+
+// Viblo server is behind cloudflare which is denied ips from most of free serverless provider (vercel, aws, heroku...)
+// https://reqbin.com/ is a rest endpoint testing which has static ip (not blocked by cloudflare I guess), use it to bypass cloudflare
+const fetchViblo = async (url): Promise<any> => {
+  const postData = JSON.stringify({
+    id: "0",
+    name: "",
+    errors: "",
+    json: JSON.stringify({
+      method: "GET",
+      url: url,
+      apiNode: "US",
+      contentType: "",
+      content: "",
+      headers: "",
+      errors: "",
+      curlCmd: "",
+      auth: {
+        auth: "noAuth",
+        bearerToken: "",
+        basicUsername: "",
+        basicPassword: "",
+        customHeader: "",
+        encrypted: ""
+      },
+      compare: false,
+      idnUrl: url
+    }),
+    sessionId: new Date().getTime()
+  })
+
+  const response = await axios.post(reqbinEndpoint, postData, {
+    headers: {
+      "Content-Type": "application/json"
+    }
+  })
+
+  return JSON.parse(response.data.Content)
+}
+
 export const vibloRecentArticles = async ({
   username,
   vibloOptions
@@ -12,7 +54,9 @@ export const vibloRecentArticles = async ({
 }): Promise<VibloArticle[]> => {
   try {
     const { top = 2 } = vibloOptions || {}
-    let { data } = await axios.get(`${vibloEndpoint}/users/${username}/posts`)
+
+    const data = await fetchViblo(`${vibloEndpoint}/users/${username}/posts`)
+
     const rawArticles = data.data
 
     const topRawArticles = rawArticles.length > top ? rawArticles.slice(0, top) : rawArticles
@@ -60,7 +104,7 @@ export const vibloArticleByUsernameAndId = async ({
   try {
     articleId = generateSlug(articleId)
 
-    let { data } = await axios.get(`${vibloEndpoint}/posts/${articleId}`)
+    const data = await fetchViblo(`${vibloEndpoint}/posts/${articleId}`)
     const rawArticle = data?.post?.data || {}
 
     if (username !== rawArticle.user?.data?.username) return
