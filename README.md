@@ -26,7 +26,9 @@ Params                |Description                      |Note                   
 
 - **Recent article by article id**
 `https://github-readme-social-article.vercel.app/medium/@tonynguyenit/pixelate-images-and-html-element-in-react-78d4120357ad`
-![Medium Cards](https://github-readme-social-article.vercel.app/medium/@tonynguyenit/pixelate-images-and-html-element-in-react-78d4120357ad)
+    <a href="https://tonynguyenit.medium.com/   pixelate-images-and-html-element-in-react-78d4120357ad">
+    <img src="https://github-readme-social-article.vercel.app/medium/@tonynguyenit/ pixelate-images-and-html-element-in-react-78d4120357ad">
+    </a>
 
 
 - **Recent article by index**
@@ -44,7 +46,9 @@ Use [Common Format](#format)
 
 - **Recent article by article id**
 `https://github-readme-social-article.vercel.app/devto/tonynguyenit/how-to-show-off-your-social-article-in-github-readme-profile-249`
-![Devto Cards](https://github-readme-social-article.vercel.app/devto/tonynguyenit/how-to-show-off-your-social-article-in-github-readme-profile-249)
+    <a href="https://dev.to/tonynguyenit/how-to-show-off-your-social-article-in-github-readme-profile-249">
+    <img src="https://github-readme-social-article.vercel.app/devto/tonynguyenit/how-to-show-off-your-social-article-in-github-readme-profile-249">
+    </a>
 
 
 - **Recent article by index**
@@ -67,7 +71,9 @@ Queries             | Type                 | Default value  | Description       
 
 - **Recent article by article id**
 `https://github-readme-social-article.vercel.app/viblo/tonynguyenit/huong-cac-bai-viet-tren-cac-platform-cua-ban-tren-github-profile-aWj53j18l6m`
-![Viblo Cards](https://github-readme-social-article.vercel.app/viblo/tonynguyenit/huong-cac-bai-viet-tren-cac-platform-cua-ban-tren-github-profile-aWj53j18l6m)
+    <a href="https://viblo.asia/p/  huong-dan-cac-bai-viet-tren-cac-platform-cua-ban-tren-github-profile-aWj53j18l6m">
+    <img src="https://github-readme-social-article.vercel.app/viblo/tonynguyenit/   huong-cac-bai-viet-tren-cac-platform-cua-ban-tren-github-profile-aWj53j18l6m" >
+    </a>
 
 
 - **Recent article by index**
