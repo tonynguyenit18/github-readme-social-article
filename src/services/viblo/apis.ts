@@ -65,9 +65,9 @@ export const vibloRecentArticles = async ({
       return {
         title: rawArticle.title,
         // Some viblo article does not have thumbnail we use default one for facebook metadata and borrow free resize cloudinary
-        thumbnail:
-          rawArticle.thumbnail_url ||
-          "https://res.cloudinary.com/demo/image/fetch/w_400,c_scale/https%3A%2F%2Fviblo.asia%2Fog-facebook-3.png",
+        thumbnail: rawArticle.thumbnail_url
+          ? `https://res.cloudinary.com/demo/image/fetch/w_400,c_scale/${rawArticle.thumbnail_url}`
+          : "https://res.cloudinary.com/demo/image/fetch/w_400,c_scale/https%3A%2F%2Fviblo.asia%2Fog-facebook-3.png",
         url: rawArticle.url,
         date: rawArticle.published_at,
         description: rawArticle.contents_short
@@ -111,9 +111,9 @@ export const vibloArticleByUsernameAndId = async ({
     const vibloArticle: VibloArticle = {
       title: rawArticle.title,
       // Some viblo article does not have thumbnail we use default one for facebook metadata and borrow free resize cloudinary
-      thumbnail:
-        rawArticle.thumbnail_url ||
-        "https://res.cloudinary.com/demo/image/fetch/w_400,c_scale/https%3A%2F%2Fviblo.asia%2Fog-facebook-3.png",
+      thumbnail: rawArticle.thumbnail_url
+        ? `https://res.cloudinary.com/demo/image/fetch/w_400,c_scale/${rawArticle.thumbnail_url}`
+        : "https://res.cloudinary.com/demo/image/fetch/w_400,c_scale/https%3A%2F%2Fviblo.asia%2Fog-facebook-3.png",
       url: rawArticle.canonical_url,
       date: rawArticle.published_at,
       description: rawArticle.seo?.description
