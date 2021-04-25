@@ -44,16 +44,16 @@ Use [Common Format](#format)
 
 - **Recent article by article id**
 `https://github-readme-social-article.vercel.app/devto/tonynguyenit/how-to-show-off-your-social-article-in-github-readme-profile-249`
-![Medium Cards](https://github-readme-social-article.vercel.app/devto/tonynguyenit/how-to-show-off-your-social-article-in-github-readme-profile-249)
+![Devto Cards](https://github-readme-social-article.vercel.app/devto/tonynguyenit/how-to-show-off-your-social-article-in-github-readme-profile-249)
 
 
 - **Recent article by index**
 `https://github-readme-social-article.vercel.app/devto/tonynguyenit/0`
-![Medium Cards](https://github-readme-social-article.vercel.app/devto/tonynguyenit/0)
+![Devto Cards](https://github-readme-social-article.vercel.app/devto/tonynguyenit/0)
 
 - **List of recent article**
 `https://github-readme-social-article.vercel.app/devto/tonynguyenit?top=2`
-![Medium Cards](https://github-readme-social-article.vercel.app/devto/tonynguyenit?top=2)
+![Devto Cards](https://github-readme-social-article.vercel.app/devto/tonynguyenit?top=2)
 
 **Format**
 Use [Common Format](#format)
@@ -63,20 +63,20 @@ Use [Common Format](#format)
 Queries             | Type                 | Default value  | Description                    |Example
 --------------------|----------------------|----------------|--------------------------------|--------------------------------------
 `top`               | number               | 6              | Top recent articles            | Show 2 most recent articles `https://github-readme-social-article.vercel.app/devto/tonynguyenit?top=2`
-<!-- ### 3. [Viblo (Vietnamese)](https://viblo.asia/)
+### 3. [Viblo (Vietnamese)](https://viblo.asia/)
 
 - **Recent article by article id**
-`https://github-readme-social-article.vercel.app/viblo/tonynguyenit/how-to-show-off-your-social-article-in-github-readme-profile-bWrZnWGmlxw`
-![Medium Cards](https://github-readme-social-article.vercel.app/viblo/tonynguyenit/how-to-show-off-your-social-article-in-github-readme-profile-bWrZnWGmlxw)
+`https://github-readme-social-article.vercel.app/viblo/tonynguyenit/huong-cac-bai-viet-tren-cac-platform-cua-ban-tren-github-profile-aWj53j18l6m`
+![Viblo Cards](https://github-readme-social-article.vercel.app/viblo/tonynguyenit/huong-cac-bai-viet-tren-cac-platform-cua-ban-tren-github-profile-aWj53j18l6m)
 
 
 - **Recent article by index**
-`https://github-readme-social-article.vercel.app/viblo/tonynguyenit/1`
-![Medium Cards](https://github-readme-social-article.vercel.app/viblo/tonynguyenit/1)
+`https://github-readme-social-article.vercel.app/viblo/tonynguyenit/0`
+![Viblo Cards](https://github-readme-social-article.vercel.app/viblo/tonynguyenit/0)
 
 - **List of recent article**
 `https://github-readme-social-article.vercel.app/viblo/tonynguyenit?top=2`
-![Medium Cards](https://github-readme-social-article.vercel.app/viblo/tonynguyenit?top=2)
+![Viblo Cards](https://github-readme-social-article.vercel.app/viblo/tonynguyenit?top=2)
 
 **Format**
 Use [Common Format](#format)
@@ -85,12 +85,12 @@ Use [Common Format](#format)
 
 Queries             | Type                 | Default value  | Description                    |Example
 --------------------|----------------------|----------------|--------------------------------|--------------------------------------
-`top`               | number               | 2              | Top recent articles            | Show 2 most recent articles `https://github-readme-social-article.vercel.app/viblo/tonynguyenit?top=10` -->
+`top`               | number               | 2              | Top recent articles            | Show 2 most recent articles `https://github-readme-social-article.vercel.app/viblo/tonynguyenit?top=10`
 
 
 
 ### How to use?
-There are 2 to embed link:
+There are 2 ways to embed link:
 
 ```md
 // README.md
