@@ -8,7 +8,8 @@ const reqbinEndpoint = "https://apius.reqbin.com/api/v1/requests"
 
 // Viblo server is behind cloudflare which is denied ips from most of free serverless provider (vercel, aws, heroku...)
 // https://reqbin.com/ is a rest endpoint testing which has static ip (not blocked by cloudflare I guess), use it to bypass cloudflare
-const fetchViblo = async (url): Promise<any> => {
+const fetchViblo = async (url: string): Promise<any> => {
+  console.log("Viblo url", url)
   const postData = JSON.stringify({
     id: "0",
     name: "",
@@ -58,7 +59,6 @@ export const vibloRecentArticles = async ({
     const data = await fetchViblo(`${vibloEndpoint}/users/${username}/posts`)
 
     const rawArticles = data.data
-
     const topRawArticles = rawArticles.length > top ? rawArticles.slice(0, top) : rawArticles
 
     const vibloArticles: VibloArticle[] = topRawArticles.map((rawArticle) => {
@@ -75,7 +75,7 @@ export const vibloRecentArticles = async ({
     })
     return vibloArticles
   } catch (error) {
-    console.log(error)
+    console.log("vibloRecentArticles", error)
     return
   }
 }
@@ -90,7 +90,6 @@ export const vibloRecentArticles = async ({
  * articleId = getting-started-zend-framework-3-yMnKMwBzl7P
  */
 const generateSlug = (articleId) => {
-  console.log(articleId, articleId?.split("-"))
   return articleId?.split("-").slice(-1)[0]
 }
 
@@ -121,7 +120,7 @@ export const vibloArticleByUsernameAndId = async ({
     }
     return vibloArticle
   } catch (error) {
-    console.log(error)
+    console.log("vibloArticleByUsernameAndId", error)
     return
   }
 }

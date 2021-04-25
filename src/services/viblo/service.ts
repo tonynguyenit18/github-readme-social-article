@@ -7,6 +7,7 @@ import {
 import { imgLinkToBase64 } from "../../utils/imgLinkToBase64"
 import { vibloArticleByUsernameAndId, vibloRecentArticles } from "./apis"
 import { VibloArticle, VibloOptions } from "./type"
+import { defaultVibloImg } from "./defaultVibloImg"
 
 const descriptionMax = 50
 const titleMax = 80
@@ -17,7 +18,7 @@ const removeImageMarkdown = (description: string) => {
 }
 
 const shortenDescription = (description) => {
-  const defaultContinue = " Continue reading on Dev.to »"
+  const defaultContinue = " Continue reading on Viblo »"
   description = description
     ?.replace(/<h3>.*<\/h3>|<figcaption>.*<\/figcaption>|<[^>]*>/gm, "")
     .substring(0, descriptionMax)
@@ -30,7 +31,7 @@ const shortenDescription = (description) => {
 }
 
 const getFormattedArticles = async ({ articles }: { articles: VibloArticle[] }) => {
-  const imgLinkBase64Promises = articles.map((article) => imgLinkToBase64(article.thumbnail))
+  const imgLinkBase64Promises = articles.map((article) => imgLinkToBase64(article.thumbnail, defaultVibloImg))
 
   const imgLinkBase64List = await Promise.all(imgLinkBase64Promises)
   const imgLinkBase64Doc: { [link: string]: string } = {}
